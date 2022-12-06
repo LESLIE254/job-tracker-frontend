@@ -17,12 +17,12 @@ export default function Login(){
             <button name="submit">
                 Sign In
             </button>
-            <span className="forgotPassword">
+            <a href="#" className="forgotPassword">
                 Forgot Password?
-            </span>
+            </a>
 
 
-            <span className="signUpLink">Don't have an account? Sign Up </span>
+            <a href="#" className="signUpLink"> Don't have an account? Sign Up </a>
             </section>
         </div>
         
