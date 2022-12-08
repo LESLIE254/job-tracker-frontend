@@ -2,8 +2,6 @@ import { useEffect, useState } from "react"
 import Logo from "../assets/person-logo.png"
 
 export default function Profile(){
-    // let user = "TestUser"
-    //let email = "TestEmail"
     let title = "Junior software Engineer"
     const[user,setUser] = useState("")
     useEffect(()=>{
@@ -17,7 +15,7 @@ export default function Profile(){
                 <figure>
                     <img src={Logo} className="personImage" alt="icon"></img>
                     <figcaption>
-                    User Profile
+                  
                 </figcaption>
                 </figure>
                 
