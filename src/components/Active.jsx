@@ -31,7 +31,7 @@ export default function Active(){
     }
     function handleSubmit(e){
         e.preventDefault()
-        fetch(`/applications/${job.id}`,{
+        fetch(`/applications/1`,{
             method:"PATCH",
             headers:{"content-type": "application/json"},
             body: JSON.stringify({
@@ -63,29 +63,29 @@ export default function Active(){
 
                 })}
             </div>
-         <form id="jobDetails" className={applied?"show":"hide"} onSubmit={handleSubmit}>
+         <form id="jobDetails" className={job?"show":"hide"} onSubmit={handleSubmit}>
                 {/* {console.log("applied",job)} */}
                 <h4>Job Title</h4>
                 <h3>{job?.job_title}</h3>
                 <div className="jobDesc">
                     <h4>Description</h4>
-                    <input name="description" type="text" value={job?.job.description} disabled/>
+                    <input name="description" type="text" value={job?.job?.description} disabled/>
                 </div>
                 <div className="jobDesc">
                     <h4>Company Name</h4>
-                    <input name="company_name" disabled value={job?.job.company_name} />
+                    <input name="company_name" disabled value={job?.job?.company_name} />
                 </div>
                 <div className="jobDesc">
                     <h4>Qualifications</h4>
-                    <input name="qualifications" disabled value={job?.job.qualifications} />
+                    <input name="qualifications" disabled value={job?.job?.qualifications} />
                 </div>
                 <div className="jobDesc">
                     <h4>Deadline</h4>
-                    <input name="deadline" disabled value={job.job.deadline} />
+                    <input name="deadline" disabled value={job?.job?.deadline} />
                 </div>
                 <div className="jobDesc">
                     <h4>Status</h4>
-                    <input name="appliaction_stage"  value={job.application_stage} onChange={handleChange}/>
+                    <input name="appliaction_stage"  value={job?.application_stage} onChange={handleChange}/>
                     {console.log("yow",job)}
                 </div>
               
