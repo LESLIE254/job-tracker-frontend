@@ -15,7 +15,7 @@ export default function Profile(){
                 <figure>
                     <img src={Logo} className="personImage" alt="icon"></img>
                     <figcaption>
-                    User Profile
+                  
                 </figcaption>
                 </figure>
                 

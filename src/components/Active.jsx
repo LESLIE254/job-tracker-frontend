@@ -19,9 +19,17 @@ export default function Active(){
         })
         console.log(job)
     }
+    function deleteApplication(e,job){
+        e.stopPropagation()
+        fetch(`/applications/${job?.id}`,{
+            method: 'DELETE'}
+            ).then(resp=>resp.json())
+            .then(data=>setApplied(data))
+    }
+
     function handleSubmit(e){
         e.preventDefault()
-        fetch(`/applications/1`,{
+        fetch(`/applications/${job.id}`,{
             method:"PATCH",
             headers:{"content-type": "application/json"},
             body: JSON.stringify({
@@ -44,7 +52,7 @@ export default function Active(){
                 <div className="jobTitle">{job.job.job_title}</div>
                 <div className="updateJob">
                 <div className="jobCompany">{job.job.company_name}</div>
-                <button className="update">Update</button>
+                <button onClick={(e)=>deleteApplication(e,job)} className="update">Delete</button>
                 </div>
                 
             </div>

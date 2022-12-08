@@ -40,7 +40,7 @@ function Dashboard(){
                         
                         <Link className="linksPanel"to="history">
                             <div><WorkHistoryIcon />
-                            <span>History</span>
+                            <span>Logout</span>
                             </div>
                         </Link>
 
