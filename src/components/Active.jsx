@@ -6,15 +6,6 @@ export default function Active(){
     const [applied,setApplied] = useState([])
     function moreDetails(job){
         setJob(job)
-        // console.log("details",job)
-        // setJob({
-        //     id: 1,
-        //     title: "myJob",
-        //     description: "yow",
-        //     deadline: "check me out",
-        //     qualifications:"haha",
-        //     company_name: "yow",
-        // })
     }
     useEffect(()=>{
         fetch("/applications")
@@ -22,7 +13,6 @@ export default function Active(){
         .then(data=>setApplied(data))
     },[])
     function handleChange(e){
-        // setInterviewStage(e.target.stage.value)
         setJob({
             ...job,
             application_stage: e.target.value
@@ -42,7 +32,6 @@ export default function Active(){
         })
         .then(resp=>resp.json())
         .then(data=>console.log("updated",data))
-        // console.log(e.target.stage?.value)
     }
     return (
         <>
@@ -64,7 +53,6 @@ export default function Active(){
                 })}
             </div>
          <form id="jobDetails" className={job?"show":"hide"} onSubmit={handleSubmit}>
-                {/* {console.log("applied",job)} */}
                 <h4>Job Title</h4>
                 <h3>{job?.job_title}</h3>
                 <div className="jobDesc">
