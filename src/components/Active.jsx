@@ -1,23 +1,27 @@
 import { useEffect } from "react"
-import { useState } from "react"
+import { useState,useContext } from "react"
+import {AppContext} from "../App"
 
 export default function Active(){
+    const {me,setMe} = useContext(AppContext)
     const [job,setJob] = useState({})
     const [applied,setApplied] = useState([])
     function moreDetails(job){
         setJob(job)
     }
     useEffect(()=>{
-        fetch("/applications")
-        .then(resp=>resp.json())
-        .then(data=>setApplied(data))
+        if (me){
+            fetch("/applications")
+            .then(resp=>resp.json())
+            .then(data=>setApplied(data))
+        }
+        
     },[])
     function handleChange(e){
         setJob({
             ...job,
             application_stage: e.target.value
         })
-        console.log(job)
     }
     function deleteApplication(e,job){
         e.stopPropagation()
@@ -60,7 +64,7 @@ export default function Active(){
 
                 })}
             </div>
-         <form id="jobDetails" className={job?"show":"hide"} onSubmit={handleSubmit}>
+         <form id="jobDetails" className={job?.job?.id?"show":"hide"} onSubmit={handleSubmit}>
                 <h4>Job Title</h4>
                 <h3>{job?.job_title}</h3>
                 <div className="jobDesc">

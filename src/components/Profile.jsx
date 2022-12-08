@@ -1,10 +1,10 @@
 import { useEffect, useState , useContext} from "react"
 import Logo from "../assets/person-logo.png"
-import { AppContext } from "./Dashboard"
+import { AppContext } from '../App';
 
 
 export default function Profile(){
-    // const {me,setUser} = useContext(AppContext)
+    const {me,setMe} = useContext(AppContext)
     let title = "Junior software Engineer"
     const [user,setUser] = useState('')
     useEffect(()=>{
@@ -28,7 +28,7 @@ export default function Profile(){
                 <section id="profile">
                    <div>
                         <label htmlFor="name">Name: </label>
-                        <input type="text" value={user?.username} disabled/>
+                        <input type="text" value={me?.username} disabled/>
                     </div>
                     <div>
                         <label htmlFor="name">Title: </label>
@@ -36,8 +36,9 @@ export default function Profile(){
                     </div>
                     <div>
                         <label htmlFor="skills">Email: </label>
-                        <input type="email" value={user?.email} disabled/>
+                        <input type="email" value={me?.email} disabled/>
                     </div>
+                    {/* <div>id: {me.id}</div> */}
                 </section>
             </main>
         </>

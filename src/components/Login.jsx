@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
-
+import {AppContext} from "../App"
 
 export default function Login() {
+  const {me,setMe} = useContext(AppContext)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -21,7 +22,11 @@ export default function Login() {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) =>setUser(user))
+        r.json().then((user) =>{
+          setUser(user)
+          setMe(user)
+        }
+        )
       }
         else {
         r.json().then((err) => console.log(err));
@@ -31,7 +36,8 @@ export default function Login() {
 
   return (
     <>
-    {user?console.log(user):""}
+    {console.log(me)}
+    {/* {user?console.log(user):""} */}
     {user? <Navigate to="/dashboard" />:<Loginone 
     handleSubmit={handleSubmit}
     email={email}

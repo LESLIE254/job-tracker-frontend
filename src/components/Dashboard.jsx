@@ -1,18 +1,16 @@
 import {Link, Routes, Route} from 'react-router-dom'
 import Profile from "./Profile"
 import Jobs from './Jobs'
-import { createContext, useState } from 'react'
-
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import WorkIcon from '@mui/icons-material/Work';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import Active from "./Active"
-
-export const AppContext = createContext(null);
+import { useContext } from 'react';
+import { AppContext } from '../App';
 
 function Dashboard(){
+    const {me,setMe} = useContext(AppContext)
     return(
         <>
             <main id="mainBoard">
@@ -20,6 +18,7 @@ function Dashboard(){
                     <div className='linkHolder'>
                         <div>
                             <h1 id="mylogo">LinkedOut</h1>
+                            <h3 className='mylogo'>Welcome {me?.username}</h3>
                         </div>
                         <Link className="linksPanel"to="">
                             <div>
