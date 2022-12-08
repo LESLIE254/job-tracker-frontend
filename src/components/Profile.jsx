@@ -3,11 +3,11 @@ import Logo from "../assets/person-logo.png"
 
 export default function Profile(){
     // let user = "TestUser"
-    let email = "TestEmail"
+    //let email = "TestEmail"
     let title = "Junior software Engineer"
     const[user,setUser] = useState("")
     useEffect(()=>{
-        fetch("/users/1")
+        fetch("/me")
         .then(resp=>resp.json())
         .then(data=>setUser(data))
     },[])
