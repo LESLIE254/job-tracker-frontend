@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { AppContext } from "./Dashboard";
 
-
-export default function Login() {
+function SignUpForm() {
+  const {user,setUser} = useContext(AppContext)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [user,setUser] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/login", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,15 +32,13 @@ export default function Login() {
 
   return (
     <>
-    {user?console.log(user):""}
-    {user? <Navigate to="/dashboard" />:<Loginone 
+    { user? <Navigate to="/dashboard" />:<SignUp 
     handleSubmit={handleSubmit}
     email={email}
     password={password}
     passwordConfirmation = {passwordConfirmation}
     setPassword = {setPassword}
     setPasswordConfirmation = {setPasswordConfirmation}
-    setEmail = {setEmail}
     />}
     </>
   )
@@ -90,44 +89,4 @@ function SignUp({setPasswordConfirmation,handleSubmit,email,setEmail,setPassword
     </div >
 }
 
-
- function Loginone({setPasswordConfirmation,handleSubmit,email,setEmail,setPassword,password,passwordConfirmation}){
-    return(
-        <>
-        <form id="loginContainer" onSubmit={handleSubmit}>
-
-            <section id="loginModal">
-            <span className="smallText">Welcome back! 👋</span>
-
-            <p>Sign in to your account</p>
-
-            <input type="email" name="email"
-            placeholder="Your email"
-            autoComplete="off"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            />
-
-            <input type="password" name="password"
-            id="password"
-            value={password}
-            placeholder="Your Password"
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
-            />
-
-            <button name="submit">
-                Sign In
-            </button>
-            <a href="#" className="forgotPassword">
-                Forgot Password?
-            </a>
-
-
-            <a href="#" className="signUpLink"> Don't have an account? Sign Up </a>
-            </section>
-        </form>
-        
-        </>
-    )
-}
+export default SignUpForm;

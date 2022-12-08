@@ -379,6 +379,7 @@ label{
     text-align: center;
     border-left: 1px solid black;
 }
+
 .updateJob{
     display: flex;
     justify-items: space-between;

@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState , useContext} from "react"
 import Logo from "../assets/person-logo.png"
+import { AppContext } from "./Dashboard"
+
 
 export default function Profile(){
+    // const {me,setUser} = useContext(AppContext)
     let title = "Junior software Engineer"
-    const[user,setUser] = useState("")
+    const [user,setUser] = useState('')
     useEffect(()=>{
         fetch("/users/1")
         .then(resp=>resp.json())

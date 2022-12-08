@@ -1,12 +1,17 @@
 import {Link, Routes, Route} from 'react-router-dom'
 import Profile from "./Profile"
 import Jobs from './Jobs'
+import { createContext, useState } from 'react'
+
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import WorkIcon from '@mui/icons-material/Work';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import Active from "./Active"
+
+export const AppContext = createContext(null);
+
 function Dashboard(){
     return(
         <>
@@ -38,7 +43,7 @@ function Dashboard(){
                             </div>
                         </Link>
                         
-                        <Link className="linksPanel"to="history">
+                        <Link className="linksPanel"to="/">
                             <div><WorkHistoryIcon />
                             <span>Logout</span>
                             </div>
