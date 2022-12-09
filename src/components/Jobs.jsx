@@ -16,7 +16,7 @@ export default function Jobs(){
         }
         console.log("job",job)
 
-        fetch("/applications",params)
+        fetch("https://tracker-gz8p.onrender.com/applications",params)
         .then(resp=>resp.json())
         .then(data=>console.log(data))
     }

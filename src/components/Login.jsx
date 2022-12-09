@@ -10,7 +10,7 @@ export default function Login() {
   const [user,setUser] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/login", {
+    fetch("https://tracker-gz8p.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
