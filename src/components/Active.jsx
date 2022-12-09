@@ -11,7 +11,7 @@ export default function Active(){
     }
     useEffect(()=>{
         if (me){
-            fetch("https://tracker-gz8p.onrender.com/applications")
+            fetch("/applications")
             .then(resp=>resp.json())
             .then(data=>setApplied(data))
         }

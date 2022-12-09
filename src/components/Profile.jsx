@@ -8,7 +8,7 @@ export default function Profile(){
     let title = "Junior software Engineer"
     const [user,setUser] = useState('')
     useEffect(()=>{
-        fetch("https://tracker-gz8p.onrender.com/users/1")
+        fetch("/users/1")
         .then(resp=>resp.json())
         .then(data=>setUser(data))
     },[])
