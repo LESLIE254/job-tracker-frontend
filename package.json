@@ -31,7 +31,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "http://localhost:3000",
+  "proxy": "https://tracker-gz8p.onrender.com",
   "browserslist": {
     "production": [
       ">0.2%",
