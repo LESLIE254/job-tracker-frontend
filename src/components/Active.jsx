@@ -11,7 +11,7 @@ export default function Active(){
     }
     useEffect(()=>{
         if (me){
-            fetch("/applications")
+            fetch("https://tracker-gz8p.onrender.com/applications")
             .then(resp=>resp.json())
             .then(data=>setApplied(data))
         }
@@ -25,7 +25,7 @@ export default function Active(){
     }
     function deleteApplication(e,job){
         e.stopPropagation()
-        fetch(`/applications/${job?.id}`,{
+        fetch(`https://tracker-gz8p.onrender.com/applications/${job?.id}`,{
             method: 'DELETE'}
             ).then(resp=>resp.json())
             .then(data=>setApplied(data))
