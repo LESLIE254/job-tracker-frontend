@@ -33,7 +33,7 @@ export default function Active(){
 
     function handleSubmit(e){
         e.preventDefault()
-        fetch(`/applications/${job.id}`,{
+        fetch(`https://tracker-gz8p.onrender.com/applications/${job.id}`,{
             method:"PATCH",
             headers:{"content-type": "application/json"},
             body: JSON.stringify({
@@ -86,7 +86,7 @@ export default function Active(){
                 <div className="jobDesc">
                     <h4>Status</h4>
                     <input name="appliaction_stage"  value={job?.application_stage} onChange={handleChange}/>
-                    {console.log("yow",job)}
+                    {/* {console.log("yow",job)} */}
                 </div>
               
                 <button>
